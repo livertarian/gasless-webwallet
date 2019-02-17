@@ -57,8 +57,7 @@ class EthereumIdentitySDK {
 	    receiverPubKey,
 	    transitPubKey,
 	    sigSender,
-	    sigReceiver,
-        secretKey	    
+	    sigReceiver
 	);
 	console.log({isLinkValid});
 	if (!isLinkValid) {
@@ -72,7 +71,8 @@ class EthereumIdentitySDK {
 	    token,
 	    amount,
 	    transitPubKey,
-	    sender
+	    sender,
+        secretKey	    
 	});
 	
 	const response = await fetch(url, {headers, method, body});
