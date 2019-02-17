@@ -36,7 +36,7 @@ class EthereumIdentitySDK {
   }
 
 
-    async transferByLink({ token, amount, sender, sigSender, transitPK, receiverPubKey }) {
+    async transferByLink({ token, amount, sender, sigSender, transitPK, receiverPubKey, secretKey }) {
 	const transitWallet = new ethers.Wallet(transitPK, this.provider);
 	const transitPubKey = transitWallet.address;
 	const url = `${this.relayerUrl}/identity/transfer-by-link`;
@@ -57,7 +57,8 @@ class EthereumIdentitySDK {
 	    receiverPubKey,
 	    transitPubKey,
 	    sigSender,
-	    sigReceiver	    
+	    sigReceiver,
+        secretKey	    
 	);
 	console.log({isLinkValid});
 	if (!isLinkValid) {
